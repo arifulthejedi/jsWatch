@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body style="background-color: lightblue;">
+	<style type="text/css">
+		div{
+			display:inline;
+		}
+		
+
+	</style>
+<div class="container">
+	<div class="gg">
+		<div id="clock"></div>
+		<div id='pe'></div>
+	</div><br>
+	<div id="date">	
+	</div>
+</div>
+<script type="text/javascript">
+	setInterval(()=>{
+	let time = new Date();
+	let year = time.getFullYear();
+	let month = time.getMonth();
+	let date = time.getDate()
+	let day = time.getDay();
+	console.log(day);
+	let hr = time.getHours();
+	let pe= "AM";
+	if (hr>12) {
+		hr-=12;
+		pe="PM"
+	}
+	let min = time.getMinutes();
+	let sec = time.getSeconds();
+	let week = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+	let months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Nov","Dec"]
+	document.getElementById('clock').innerHTML=`<h1>${hr}:${min}:${sec}</h1>`;
+	document.getElementById('pe').innerHTML=`<h4><b>${pe}</b></h4>`
+	document.getElementById('date').innerHTML=`<h3>${week[day]},${months[month]} ${date},${year}</h3>`
+
+},1000)
+
+</script>
+</body>
+</html>
